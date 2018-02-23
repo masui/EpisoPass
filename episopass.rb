@@ -3,24 +3,18 @@
 
 $:.unshift File.expand_path 'lib', File.dirname(__FILE__)
 
+# 標準ライブラリ
 require 'sinatra'
 require 'sinatra/cross_origin'
-
 require 'mongo'
-
 require 'json'
 
+# ローカルライブラリ
 require 'defaultdata'
-
 require 'db'
 require 'file'
 
-# require 'data'
-# require 'app'
-
 enable :cross_origin # Chrome拡張機能から読めるようにするため
-
-ROOT = "/Users/masui/EpisoPass"
 
 configure do
   set :root, File.dirname(__FILE__)
@@ -56,11 +50,6 @@ get '/:name/:seed' do |name,seed|
   redirect "/#{name}?seed=#{seed}"
 end
   
-# get '/remove_all_data' do
-#   result = episodb.delete_many()
-#   'cleared'
-# end
-
 get '/' do
   redirect "/index.html"
 end

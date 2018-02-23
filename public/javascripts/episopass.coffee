@@ -172,7 +172,6 @@ sendfile = (files) ->
 
 save = () ->
   data['seed'] = $('#seed').val()
-  alert JSON.stringify(data)
   $.ajax
     type: "POST"
     async: false
