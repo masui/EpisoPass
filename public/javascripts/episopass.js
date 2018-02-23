@@ -192,7 +192,6 @@ sendfile = function(files) {
 
 save = function() {
   data['seed'] = $('#seed').val();
-  alert(JSON.stringify(data));
   return $.ajax({
     type: "POST",
     async: false,
