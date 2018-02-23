@@ -11,14 +11,14 @@ personal episodic memories?
 [EpisoPass](http://EpisoPass.com) lets you
 generate **very strong** passwords based on your secret
 episodic memories. 
-If you cannot forget your secret memories,
+If you do not forget your secret memories,
 you have no chance losing your passwords generated from them!
 
 ## Basic idea
 
-Artificial long passwords are hard to remember,
-while old episodic memories are hard to forget.
-If long passwords can be generated from old secret
+Long passwords are hard to remember,
+but old episodic memories are hard to forget.
+If secret passwords can be generated from old
 episodic memories, they are (1) hard to crack, and
 (2) easy to be generated from memories.
 
@@ -71,10 +71,8 @@ for the calculation can be open to the public.
 ## Install
 
 - % ```git clone git@github.com:masui/EpisoPass.git```
-- % ```sudo gem install sinatra```
 - % ```cd EpisoPass```
-- Modify ```ROOT``` and ```FILEROOT``` variables
-in ```lib/config.rd```
+- % ```bundle install```
 - % ```ruby episopass.rb```
 
 ## FAQs
