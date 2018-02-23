@@ -8,72 +8,92 @@ require 'sinatra/cross_origin'
 
 require 'mongo'
 
+require 'json'
+
+require 'defaultdata'
+
+require 'db'
+require 'file'
+
 # require 'data'
 # require 'defaultdata'
 # require 'app'
 # require 'expand'
 # require 'config'
-# 
-# enable :cross_origin
-#
 
-# collection = ''
-episodb = ''
+enable :cross_origin # Chrome拡張機能から読めるようにするため
 
 configure do
-  # db = Mongo::Client.new(ENV['MONGODB_URI'], :database => 'episopass')
-  # set :mongo_db, db[:episopass]
-
-  episodb = Mongo::Client.new(ENV['MONGODB_URI'])[:episopass]
-
-  # db.use(:episopass)
-  # collection = db[:episopass]
+  set :root, File.dirname(__FILE__) # + '/../..'
+  set :public_folder, settings.root + '/public'
 end
 
-get '/:name/:quiz' do
-  name = params[:name]
-  quiz = params[:quiz]
-  d = { name: name, quiz: quiz }
-  episodb.insert_one(d)
-  quiz
-end
-
-get '/clear' do
-  result = episodb.delete_many()
-  'cleared'
+get '/:name.json' do |name|
+  getdata(name).to_json
 end
   
-get '/list' do
-  # result = collection.find('name' => 'masui')
-  # collection.update_one({'name' => 'masui'}, { quiz: 'xxxzxxxxxxx'})
-  #result = collection.delete_one({ quiz: 'xxxzxxxxxxx'})
-  # result = collection.find('name' => 'masui').limit(1).first
-  result = episodb.find()
-  s = []
-  result.each do |doc|
-    puts doc
-    s << doc.to_s
-  end
-  # puts result
-  s.join(', ')
+get '/:name.html' do |name|
+  @data = {}
+  @data['data'] = getdata(name)
+  @data['data']['seed'] = params[:seed] if params[:seed]
+  @data['fav'] =  Base64.encode64(get_file('images/favicon.png')).gsub("\n",'')
+  @data['bg'] =   Base64.encode64(get_file('images/exclusive_paper.gif')).gsub("\n",'')
+  @data['jquery'] =   get_file('javascripts/jquery.js')
+  @data['episodas'] = get_file('javascripts/episodas.js')
+  @data['md5'] =      get_file('javascripts/md5.js')
+  @data['crypt'] =    get_file('javascripts/crypt.js')
+
+  erb :episodas
+end
+  
+get '/:name/:seed.html' do |name,seed|
+  redirect "/#{name}.html?seed=#{seed}"
+end
+  
+get '/search/:name' do
+  @data = getdata(params[:name])
+  erb :search
 end
 
-get '/collections' do
- result = collection.find()
- 
- result.each do |doc|
-   puts doc
- end
+#get '/:name/:quiz' do
+#  name = params[:name]
+#  quiz = params[:quiz]
+#  episodb.delete_many({name: name})
+#  d = { name: name, quiz: quiz }
+#  episodb.insert_one(d)
+#
+#  result = episodb.find()
+#  s = []
+#  result.each do |doc|
+#    puts doc
+#    s << doc.to_s
+#  end
+#  # puts result
+#  @result = s.join(', ')
+#  
+#  erb :episopass
+#end
 
- "xxxxxx"
- 
-  # content_type :json
-  # settings.mongo_db.database.collection_names.to_json
-end
+# get '/clear' do
+#   result = episodb.delete_many()
+#   'cleared'
+# end
+  
+# get '/list' do
+#   result = episodb.find()
+#   s = []
+#   result.each do |doc|
+#     puts doc
+#     s << doc.to_s
+#   end
+#   # puts result
+#   s.join(', ')
+# end
 
 get '/' do
   redirect "/index.html"
 end
+
 
 # post '/:name/__write' do |name|
 #   data = params[:data]
@@ -86,49 +106,7 @@ end
 #   content_type 'application/vnd.android.package-archive'
 #   apk(name)
 # end
-# 
-# #get '/EpisoDAS/:name.html' do |name|
-# #  @name = name
-# #  @json = readdata(name)
-# #  @json = defaultdata.to_json if @json.nil?
-# #  erb :episodas
-# #end
-# 
-# get '/DAS/' do |name|
-#   redirect "/DAS"
-# end
-# 
-# get '/EpisoDAS/' do |name|
-#   redirect "/DAS"
-# end
-# 
-# get '/EpisoDAS' do |name|
-#   redirect "/DAS"
-# end
-# 
-# get '/DAS' do |name|
-#   redirect "http://scrapbox.io/masui/EpisoDAS"
-# end
-# 
-# get '/DAS/:name/:seed' do |name,seed|
-#   @name = name
-#   @seed = seed
-#   redirect "/EpisoDAS.html?name=#{name}&seed=#{seed}"
-# end
-# 
-# get '/DAS/:name' do |name|
-#   @name = name
-#   redirect "/EpisoDAS.html?name=#{name}"
-# end
-# 
-# get '/:name.html' do |name|
-#   @name = name
-#   @json = readdata(name)
-#   @json = defaultdata.to_json if @json.nil?
-#   expand
-#   # erb :app
-# end
-# 
+
 # get '/:name/:seed.html' do |name,seed|
 #   @name = name
 #   @seed = seed
