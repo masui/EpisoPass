@@ -65,4 +65,3 @@ end
 #   content_type 'application/vnd.android.package-archive'
 #   apk(name)
 # end
-
