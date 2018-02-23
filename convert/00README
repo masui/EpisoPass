@@ -1,0 +1,4 @@
+EpisoPass/data/log を変換する
+
+% ruby log2id.rb log | sort -r | uniq > ids
+

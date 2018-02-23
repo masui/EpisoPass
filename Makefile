@@ -16,6 +16,7 @@ js:
 	coffee -c -b public/javascripts/episopass.coffee
 	coffee -c public/javascripts/crypt.coffee
 
-
+backup:
+	cd backups; ruby backup.rb
 
 
