@@ -46,18 +46,22 @@ get '/:name' do |name|
   erb :episopass
 end
 
-get '/:name/:seed' do |name,seed|
-  redirect "/#{name}?seed=#{seed}"
-end
-  
-get '/' do
-  redirect "/index.html"
+get '/:name/__read' do |name|
+  getdata(name).to_json
 end
 
 post '/:name/__write' do |name|
   data = JSON.parse(params[:data])
   writedata(name,data)
   ''
+end
+
+get '/:name/:seed' do |name,seed|
+  redirect "/#{name}?seed=#{seed}"
+end
+  
+get '/' do
+  redirect "/index.html"
 end
 
 # get '/:name.apk' do |name|

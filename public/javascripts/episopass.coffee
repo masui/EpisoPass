@@ -9,6 +9,10 @@
 #  var seed = '<%= @seed %>';
 #
 
+data = JSON.parse decodeURI(json)
+name = data.name
+seed = data.seed
+
 qas = data['qas']
 curq = 0
 cura = 0
@@ -174,7 +178,7 @@ save = () ->
   data['seed'] = $('#seed').val()
   $.ajax
     type: "POST"
-    async: false
+    async: true
     url: "/#{name}/__write"
     data: "data=#{JSON.stringify(data)}"
 
@@ -188,7 +192,7 @@ $ ->
     save()
   $("#das").click ->
     save()
-    window.open().location.href="http://EpisoPass.com/EpisoDASMaker.html?name=#{name}&selections=#{answer.join(',')}&seed=#{$('#seed').val()}"
+    window.open().location.href="/EpisoDASMaker.html?name=#{name}&selections=#{answer.join(',')}&seed=#{$('#seed').val()}"
   $("#apk").click ->
     save()
     location.href = "/#{name}.apk"

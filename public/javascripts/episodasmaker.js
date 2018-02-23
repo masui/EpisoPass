@@ -78,11 +78,11 @@ function finish(){
 	}
     }
     jsonstr = JSON.stringify(data) ;
-    alert(jsonstr);
+    //alert(jsonstr);
 
     $.ajax({
 	type: "POST",
-	async: true,
+	async: false,
 	url: `/${name}/__write`,
 	data: `data=${jsonstr}`
     });
@@ -136,6 +136,23 @@ function initsize(){
     $('#question').css('font-size',width * 0.06);
 }
 
+/*
+async function getdata(){
+    const val = await $.ajax({
+	url: `/${name}/__read`,
+	dataType: 'json'
+    });
+    data = val;
+    alert(data.seed);
+}
+*/
+
+//async function getData(url) {
+//    const dataset = await $.ajax(url);
+//    document.querySelector('.joke').innerHTML = dataset.value.joke;
+//}
+
+
 function init(){
     // GET引数解析
     var argstr = location.search.substring(1);
@@ -148,15 +165,27 @@ function init(){
     selections = arg['selections'].split(',');
     
     // JSON読み出し
-    namehash = exports.MD5_hexhash(name);
     $.ajax({
-	    url: `./data/${namehash}`,
-		dataType: 'json',
-		async: false,
-		success: function(json) {
-		data = json;
-	    }
-	});
+	url: `/${name}/__read`,
+	// dataType: 'json',
+	async: false,
+	success: function(json) {
+	    //alert(JSON.stringify(json));
+	    data = JSON.parse(json);
+	    // data = json;
+	    //alert(json);
+	}
+    });
+    /*
+    await $.ajax({
+	url: `/${name}/__read`,
+	dataType: 'json',
+	success: function(json) {
+	    data = json;
+	}
+    });
+     */
+    //alert(data.seed);
 
     if(!seed) data['seed'] = seed;
     qas = data['qas'];
