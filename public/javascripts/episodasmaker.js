@@ -168,7 +168,7 @@ function init(){
     $.ajax({
 	url: `/${name}/__read`,
 	// dataType: 'json',
-	async: false,
+	async: true,
 	success: function(json) {
 	    //alert(JSON.stringify(json));
 	    data = JSON.parse(json);
