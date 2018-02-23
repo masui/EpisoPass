@@ -27,6 +27,7 @@ end
   
 get '/:name.html' do |name| # DAS
   @data = getdata(name)
+  @data['name'] = name
   @data['seed'] = params[:seed] if params[:seed]
 
   erb :episodas
@@ -42,6 +43,7 @@ end
 
 get '/:name' do |name|
   @data = getdata(name)
+  @data['name'] = name
   @data['seed'] = params[:seed] if params[:seed]
   erb :episopass
 end

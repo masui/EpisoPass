@@ -9,6 +9,7 @@
 #
 
 data = JSON.parse decodeURI(json)
+name = data.name
 
 qas = data['qas']
 curq = 0
@@ -176,7 +177,7 @@ save = () ->
   $.ajax
     type: "POST"
     async: true
-    url: "/#{data.name}/__write"
+    url: "/#{name}/__write"
     data: "data=#{JSON.stringify(data)}"
 
 $ ->
@@ -189,10 +190,10 @@ $ ->
     save()
   $("#das").click ->
     save()
-    window.open().location.href="/EpisoDASMaker.html?name=#{data.name}&selections=#{answer.join(',')}&seed=#{$('#seed').val()}"
+    window.open().location.href="/EpisoDASMaker.html?name=#{name}&selections=#{answer.join(',')}&seed=#{$('#seed').val()}"
   $("#apk").click ->
     save()
-    location.href = "/#{data.name}.apk"
+    location.href = "/#{name}.apk"
 
   if ! location.href.match(/^http/)
     $('#save').css 'display', 'none'

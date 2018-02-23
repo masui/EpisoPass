@@ -174,6 +174,7 @@ function init(){
 	    data = JSON.parse(json);
 	    // data = json;
 	    //alert(json);
+	    init2();
 	}
     });
     /*
@@ -187,6 +188,9 @@ function init(){
      */
     //alert(data.seed);
 
+}
+
+function init2(){
     if(!seed) data['seed'] = seed;
     qas = data['qas'];
     page = 0;

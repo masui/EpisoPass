@@ -22,6 +22,7 @@ def getdata(name)
 end
 
 def writedata(name,data)
+  puts "_________writedata name=#{name}"
   $episodb.delete_many({name: name})
   d = { name: name, seed: data['seed'], qas: data['qas'] }
   $episodb.insert_one(d)
