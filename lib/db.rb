@@ -20,3 +20,14 @@ def getdata(name)
   end
   data
 end
+
+def writedata(name,data)
+  #puts name
+  #puts data
+  $episodb.delete_many({name: name})
+  d = { name: name, seed: data['seed'], qas: data['qas'] }
+  #puts "++++++++++++++++++++++++++++++++++++++++++"
+  #puts d
+  $episodb.insert_one(d)
+  #puts ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+end

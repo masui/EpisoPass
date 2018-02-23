@@ -8,11 +8,11 @@
     <meta name="apple-mobile-web-app-title" content="EpisoPass">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-    <link rel="icon" type="image/png" href="data:image/png;base64,<%= @data['fav'] %>">
-    <title><%= @data['data']['name'] %></title>
+    <link rel="icon" type="image/png" href="data:image/png;base64,<%= Base64.encode64(get_file('images/favicon.png')).gsub("\n",'') %>">
+    <title><%= @data['name'] %></title>
     <style type="text/css">
     body {
-        background-image: url("data:image/gif;base64,<%= @data['bg'] %>");
+        background-image: url("data:image/gif;base64,<%= Base64.encode64(get_file('images/exclusive_paper.gif')).gsub("\n",'') %>");
     }
     div {
       font-family: sans-serif
@@ -23,12 +23,13 @@
     </style>
 
     <script type="text/javascript">
-    const data = <%= @data['data'].to_json %>;
+    //const data = <%= @data['data'].to_json %>;
+    const data = <%= @data.to_json %>;
     </script>
-    <script type="text/javascript"><%= @data['jquery'] %></script>
-    <script type="text/javascript"><%= @data['episodas'] %></script>
-    <script type="text/javascript"><%= @data['md5'] %></script>
-    <script type="text/javascript"><%= @data['crypt'] %></script>
+    <script type="text/javascript"><%= get_file('javascripts/jquery.js') %></script>
+    <script type="text/javascript"><%= get_file('javascripts/episodas.js') %></script>
+    <script type="text/javascript"><%= get_file('javascripts/md5.js') %></script>
+    <script type="text/javascript"><%= get_file('javascripts/crypt.js') %></script>
   </head>
   <body>
   </body>

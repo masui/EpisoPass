@@ -9,7 +9,6 @@
 #  var seed = '<%= @seed %>';
 #
 
-data = JSON.parse decodeURI(json)
 qas = data['qas']
 curq = 0
 cura = 0
@@ -173,6 +172,7 @@ sendfile = (files) ->
 
 save = () ->
   data['seed'] = $('#seed').val()
+  alert JSON.stringify(data)
   $.ajax
     type: "POST"
     async: false

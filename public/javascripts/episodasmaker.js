@@ -78,13 +78,14 @@ function finish(){
 	}
     }
     jsonstr = JSON.stringify(data) ;
+    alert(jsonstr);
 
     $.ajax({
-	    type: "POST",
-		async: true,
-		url: `/${name}/__write`,
-				   data: `data=${jsonstr}`
-									  });
+	type: "POST",
+	async: true,
+	url: `/${name}/__write`,
+	data: `data=${jsonstr}`
+    });
     alert('DASデータを生成しました。移動します。');
     // location.href = `/DAS/${name}/${seed}`;
     // location.href = `/${name}/${seed}.html`;
