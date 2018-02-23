@@ -3,15 +3,12 @@
 # 
 #  Toshiyuki Masui @ Pitecan.com
 #  Last Modified: 2015/10/31 19:12:53
+#  Modified       2018/02/23 17:24:33 for heroku
 # 
-#  var json = '<%= @json %>';
-#  var name = '<%= @name %>';
-#  var seed = '<%= @seed %>';
+#  var json = '<%= @data.to_json %>';
 #
 
 data = JSON.parse decodeURI(json)
-name = data.name
-seed = data.seed
 
 qas = data['qas']
 curq = 0
@@ -179,7 +176,7 @@ save = () ->
   $.ajax
     type: "POST"
     async: true
-    url: "/#{name}/__write"
+    url: "/#{data.name}/__write"
     data: "data=#{JSON.stringify(data)}"
 
 $ ->
@@ -192,16 +189,16 @@ $ ->
     save()
   $("#das").click ->
     save()
-    window.open().location.href="/EpisoDASMaker.html?name=#{name}&selections=#{answer.join(',')}&seed=#{$('#seed').val()}"
+    window.open().location.href="/EpisoDASMaker.html?name=#{data.name}&selections=#{answer.join(',')}&seed=#{$('#seed').val()}"
   $("#apk").click ->
     save()
-    location.href = "/#{name}.apk"
+    location.href = "/#{data.name}.apk"
 
   if ! location.href.match(/^http/)
     $('#save').css 'display', 'none'
     $('#apk').css 'display','none'
     
-  $('#seed').val seed
+  $('#seed').val data.seed
     
   $('#qa_json').click (event) ->
     event.preventDefault()
