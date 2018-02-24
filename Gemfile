@@ -2,9 +2,9 @@ ruby '2.5.0'
 
 source 'https://rubygems.org'
 
-gem 'sinatra'
-gem 'sinatra-cross_origin'
+gem 'sinatra', '~> 2.0.1'
+gem 'sinatra-cross_origin', '~> 0.4.0'
 
-gem 'mongo'
+gem 'mongo', '~> 2.5.1'
 
-gem 'puma'
+gem 'puma', '~> 3.11.2'
