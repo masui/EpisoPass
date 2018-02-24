@@ -17,6 +17,6 @@ js:
 	coffee -c public/javascripts/crypt.coffee
 
 backup:
-	cd backups; ruby backup.rb
+	cd backups; make
 
 
