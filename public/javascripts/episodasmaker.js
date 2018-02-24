@@ -153,7 +153,7 @@ async function getdata(){
 //}
 
 
-function init(){
+async function init(){
     // GET引数解析
     var argstr = location.search.substring(1);
     argstr.split('&').map(function(s){
@@ -165,32 +165,16 @@ function init(){
     selections = arg['selections'].split(',');
     
     // JSON読み出し
-    $.ajax({
+    await $.ajax({
 	url: `/${name}/__read`,
 	// dataType: 'json',
 	async: true,
 	success: function(json) {
-	    //alert(JSON.stringify(json));
 	    data = JSON.parse(json);
 	    // data = json;
-	    //alert(json);
-	    init2();
 	}
     });
-    /*
-    await $.ajax({
-	url: `/${name}/__read`,
-	dataType: 'json',
-	success: function(json) {
-	    data = json;
-	}
-    });
-     */
-    //alert(data.seed);
 
-}
-
-function init2(){
     if(!seed) data['seed'] = seed;
     qas = data['qas'];
     page = 0;
@@ -311,5 +295,5 @@ function init2(){
 }
 
 $(function() {
-    init();
+    init().then(() => { console.log('ok'); });
 });
