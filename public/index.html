@@ -5,7 +5,8 @@
     <!-- link rel="stylesheet" href="stylesheets/episopass.css" type="text/css" -->
     <style type="text/css">
       body {
-        background-color: #fff
+        /* background-color: #ae9 */
+        background-color: #eee;
       }
 
       /*
@@ -44,7 +45,7 @@
       list-style: none;
     }
     div.menuitem {
-      margin: 4px 8px 4px 8px;
+      margin: 4px 4px 4px 4px;
       padding: 10px 15px 10px 15px;
       border-radius: 4px;
       line-height: 1;
@@ -80,14 +81,13 @@
 
     <div class='menu'>
       <a href="https://scrapbox.io/EpisoPass/概要"><div class='menuitem'>概要</div></a>
-      <a href="https://scrapbox.io/EpisoPass/デモ"><div class='menuitem'>デモ</div></a>
       <a href="https://scrapbox.io/EpisoPass/利用例"><div class='menuitem'>利用例</div></a>
-      <a href="https://scrapbox.io/EpisoPass/%E8%A7%A3%E8%AA%AC%E3%82%B9%E3%83%A9%E3%82%A4%E3%83%89"><div class='menuitem'>スライド</div></a>
+      <a href="https://scrapbox.io/EpisoPass/解説スライド"><div class='menuitem'>解説</div></a>
+      <a href="https://scrapbox.io/EpisoPass/使いかた"><div class='menuitem'>使いかた</div></a>
+      <a href="/easy.html"><div class='menuitem'>お手軽問題作成</div></a>
       <a href="https://scrapbox.io/EpisoPass/FAQ"><div class='menuitem'>FAQ</div></a>
-      <a href="https://scrapbox.io/EpisoPass/関連システム"><div class='menuitem'>関連システム</div></a>
-      <a href="https://scrapbox.io/EpisoPass/論文"><div class='menuitem'>論文</div></a>
+      <a href="https://scrapbox.io/EpisoPass/資料"><div class='menuitem'>資料</div></a>
       <a href="https://scrapbox.io/EpisoPass/連絡先"><div class='menuitem'>連絡先</div></a>
-      <a href="https://scrapbox.io/EpisoPass/ポエム"><div class='menuitem'>ポエム</div></a>
     </div>
 
     <ul>
@@ -96,7 +96,7 @@
 
     <div style="text-align:center;">
       <div>
-	↓クリックして実際に試せます
+	↓クリックして試せます
 	<br>
 	<a href="https://episopass.com/Amazon_masui@pitecan.com.html"><img src="https://gyazo.com/d703a1d7fa33182d850eb8a6ad5bd292.gif" height=400></a>
       </div>
@@ -119,7 +119,9 @@
         'パスワード地獄からの脱出',
         'らくらくパスワード管理'
       ];
-      document.getElementById('title').innerHTML = titles[Math.floor(Math.random() * titles.length)];
+      setInterval(() => {
+        document.getElementById('title').innerHTML = titles[Math.floor(Math.random() * titles.length)];
+      }, 10000);
       var subtitles = [
         'もうパスワードは覚えない',
         'パスワードは覚えず生成しよう',
@@ -127,7 +129,10 @@
         'パスワードは覚えるな!',
         'まだパスワードで消耗してるの?'
       ];
-      document.getElementById('subtitle').innerHTML = subtitles[Math.floor(Math.random() * subtitles.length)];
+      setInterval(() => {
+        document.getElementById('subtitle').innerHTML = subtitles[Math.floor(Math.random() * subtitles.length)];
+      }, 13000);
+      
     </script>
   </body>
 </html>
