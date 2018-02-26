@@ -216,18 +216,19 @@ $(function() {
     return save();
   });
   $("#das").click(function() {
+    var nwin;
     save();
+    nwin = window.open();
     return $.ajax({
       url: 'episodasmaker.ejs',
       success: (function(_this) {
         return function(data) {
-          var nwin, s;
+          var s;
           s = ejs.compile(data)({
             name: JSON.stringify(name),
             seed: JSON.stringify($('#seed').val()),
             selections: JSON.stringify(answer)
           });
-          nwin = window.open();
           nwin.document.open();
           nwin.document.write(s);
           return nwin.document.close();

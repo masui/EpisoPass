@@ -193,6 +193,7 @@ $ ->
     # テンプレートからDASMakerのHTMLを作成してオープンする
     # ejsファイルを読むのにajaxが必要なのか??
     # ポップアップになってしまうので困る
+    nwin = window.open() # ajaxの外で開くとポップアップブロックしない!
     $.ajax
       url: 'episodasmaker.ejs'
       success: (data) =>
@@ -200,7 +201,7 @@ $ ->
           name: JSON.stringify(name)
           seed: JSON.stringify($('#seed').val())
           selections: JSON.stringify(answer)
-        nwin = window.open()
+        # nwin = window.open() ここで開くとポップアップブロックする
         nwin.document.open()
         nwin.document.write s
         nwin.document.close()
