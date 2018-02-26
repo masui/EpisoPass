@@ -4,15 +4,15 @@ var browserWidth = function(){
     if(window.innerWidth){ return window.innerWidth; }  
     else if(document.body){ return document.body.clientWidth; }  
     return 0;  
-}
+};
 
 var browserHeight = function(){  
     if(window.innerHeight){ return window.innerHeight; }  
     else if(document.body){ return document.body.clientHeight; }  
     return 0;  
-}
+};
 
-function display(){ // n番目の問題と答リストを設定
+var display = function(){ // n番目の問題と答リストを設定
     if(page < qas.length){
         var question = qas[page].question;
         $('#question').text(question);
@@ -21,16 +21,16 @@ function display(){ // n番目の問題と答リストを設定
             $(`#id${i}`).text(answers[i]);
         }
     }
-}
+};
 
-function select_answer(s){
+var select_answer = function(s){
     if(page < qas.length){
         selected.push(s);
     }
     if(page+1 == qas.length){
         finished = true;
     }
-}
+};
 
 function finish(){
     $('body').children().remove();
@@ -100,7 +100,7 @@ var buttondiv;
 var buttondivs = [];
 
 function mouseenter(div){
-    curdiv = div
+    curdiv = div;
     if(mousedown){
         curdiv.css('background-color','#f3f3f3');
         select_answer(curdiv.attr('index'));
@@ -151,7 +151,7 @@ function mousemove(e){
     }
 }
 
-function init(){
+var init = function(){
     qas = data['qas'];
     page = 0;
     
@@ -221,7 +221,7 @@ function init(){
 
     initsize();
     display();
-}
+};
 
 $(function() {
     init();

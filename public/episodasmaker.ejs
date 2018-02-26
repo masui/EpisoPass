@@ -1,5 +1,5 @@
 <!--
-    http://EpisoPass.com/EpisoDASMaker.html?name=amazon&answers=1,2,3,4,5
+   EpisoDAS登録HTMLのテンプレート
 -->
 <html>
   <head>
@@ -9,6 +9,9 @@
     <title>EpisoDAS Maker</title>
     <script language="JavaScript">
       var exports = {};
+      var name = <%- name %>; // エスケープしない
+      var seed = <%- seed %>;
+      var selections = <%- selections %>;
     </script>
     <script src="javascripts/jquery.js"></script>
     <script src="javascripts/episodasmaker.js"></script>
@@ -17,4 +20,3 @@
   <body>
   </body>
 </html>
-

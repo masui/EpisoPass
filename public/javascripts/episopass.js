@@ -217,7 +217,23 @@ $(function() {
   });
   $("#das").click(function() {
     save();
-    return window.open().location.href = "/EpisoDASMaker.html?name=" + name + "&selections=" + (answer.join(',')) + "&seed=" + ($('#seed').val());
+    return $.ajax({
+      url: 'episodasmaker.ejs',
+      success: (function(_this) {
+        return function(data) {
+          var nwin, s;
+          s = ejs.compile(data)({
+            name: JSON.stringify(name),
+            seed: JSON.stringify($('#seed').val()),
+            selections: JSON.stringify(answer)
+          });
+          nwin = window.open();
+          nwin.document.open();
+          nwin.document.write(s);
+          return nwin.document.close();
+        };
+      })(this)
+    });
   });
   $("#apk").click(function() {
     save();

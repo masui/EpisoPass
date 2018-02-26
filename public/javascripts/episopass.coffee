@@ -190,7 +190,20 @@ $ ->
     save()
   $("#das").click ->
     save()
-    window.open().location.href="/EpisoDASMaker.html?name=#{name}&selections=#{answer.join(',')}&seed=#{$('#seed').val()}"
+    # テンプレートからDASMakerのHTMLを作成してオープンする
+    # ejsファイルを読むのにajaxが必要なのか??
+    $.ajax
+      url: 'episodasmaker.ejs'
+      success: (data) =>
+        s = ejs.compile(data)
+          name: JSON.stringify(name)
+          seed: JSON.stringify($('#seed').val())
+          selections: JSON.stringify(answer)
+        nwin = window.open()
+        nwin.document.open()
+        nwin.document.write s
+        nwin.document.close()
+    
   $("#apk").click ->
     save()
     location.href = "/#{name}.apk"

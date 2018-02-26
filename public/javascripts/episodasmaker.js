@@ -78,7 +78,6 @@ function finish(){
 	}
     }
     jsonstr = JSON.stringify(data) ;
-    //alert(jsonstr);
 
     $.ajax({
 	type: "POST",
@@ -87,8 +86,6 @@ function finish(){
 	data: `data=${jsonstr}`
     });
     alert('DASデータを生成しました。移動します。');
-    // location.href = `/DAS/${name}/${seed}`;
-    // location.href = `/${name}/${seed}.html`;
     location.href = `/${name}.html`;
     return;
 
@@ -136,34 +133,7 @@ function initsize(){
     $('#question').css('font-size',width * 0.06);
 }
 
-/*
-async function getdata(){
-    const val = await $.ajax({
-	url: `/${name}/__read`,
-	dataType: 'json'
-    });
-    data = val;
-    alert(data.seed);
-}
-*/
-
-//async function getData(url) {
-//    const dataset = await $.ajax(url);
-//    document.querySelector('.joke').innerHTML = dataset.value.joke;
-//}
-
-
 async function init(){
-    // GET引数解析
-    var argstr = location.search.substring(1);
-    argstr.split('&').map(function(s){
-	    var kv = s.split('=');
-	    arg[kv[0]] = kv[1];
-	});
-    name = arg['name'];
-    seed = arg['seed'];
-    selections = arg['selections'].split(',');
-    
     // JSON読み出し
     await $.ajax({
 	url: `/${name}/__read`,
