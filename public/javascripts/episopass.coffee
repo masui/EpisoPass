@@ -192,6 +192,7 @@ $ ->
     save()
     # テンプレートからDASMakerのHTMLを作成してオープンする
     # ejsファイルを読むのにajaxが必要なのか??
+    # ポップアップになってしまうので困る
     $.ajax
       url: 'episodasmaker.ejs'
       success: (data) =>
