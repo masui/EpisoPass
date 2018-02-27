@@ -2,9 +2,9 @@
 // EpisoDASのDASパタンを入力させてJSON生成
 //
 
-//var name;
-//var seed;
-//var selections;
+//
+// DASボタンを押したときこれらの値がセーブされる
+//
 var name = localStorage.getItem('name');
 var seed = localStorage.getItem('seed');
 var selections = JSON.parse(localStorage.getItem('selections'));
