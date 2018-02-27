@@ -216,25 +216,11 @@ $(function() {
     return save();
   });
   $("#das").click(function() {
-    var nwin;
     save();
-    nwin = window.open();
-    return $.ajax({
-      url: 'episodasmaker.ejs',
-      success: (function(_this) {
-        return function(data) {
-          var s;
-          s = ejs.compile(data)({
-            name: JSON.stringify(name),
-            seed: JSON.stringify($('#seed').val()),
-            selections: JSON.stringify(answer)
-          });
-          nwin.document.open();
-          nwin.document.write(s);
-          return nwin.document.close();
-        };
-      })(this)
-    });
+    localStorage.setItem('name', name);
+    localStorage.setItem('seed', $('#seed').val());
+    localStorage.setItem('selections', JSON.stringify(answer));
+    return location.href = '/episodasmaker.html';
   });
   $("#apk").click(function() {
     save();

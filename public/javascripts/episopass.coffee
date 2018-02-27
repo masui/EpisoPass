@@ -190,21 +190,26 @@ $ ->
     save()
   $("#das").click ->
     save()
-    # テンプレートからDASMakerのHTMLを作成してオープンする
-    # ejsファイルを読むのにajaxが必要なのか??
-    # ポップアップになってしまうので困る
-    nwin = window.open() # ajaxの外で開くとポップアップブロックしない!
-    $.ajax
-      url: 'episodasmaker.ejs'
-      success: (data) =>
-        s = ejs.compile(data)
-          name: JSON.stringify(name)
-          seed: JSON.stringify($('#seed').val())
-          selections: JSON.stringify(answer)
-        # nwin = window.open() ここで開くとポップアップブロックする
-        nwin.document.open()
-        nwin.document.write s
-        nwin.document.close()
+    localStorage.setItem 'name', name
+    localStorage.setItem 'seed', $('#seed').val()
+    localStorage.setItem 'selections', JSON.stringify(answer)
+    location.href = '/episodasmaker.html'
+
+    # # テンプレートからDASMakerのHTMLを作成してオープンする
+    # # ejsファイルを読むのにajaxが必要なのか??
+    # # ポップアップになってしまうので困る
+    # nwin = window.open() # ajaxの外で開くとポップアップブロックしない!
+    # $.ajax
+    #   url: 'episodasmaker.ejs'
+    #   success: (data) =>
+    #     s = ejs.compile(data)
+    #       name: JSON.stringify(name)
+    #       seed: JSON.stringify($('#seed').val())
+    #       selections: JSON.stringify(answer)
+    #     # nwin = window.open() ここで開くとポップアップブロックする
+    #     nwin.document.open()
+    #     nwin.document.write s
+    #     nwin.document.close()
     
   $("#apk").click ->
     save()

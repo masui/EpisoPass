@@ -2,16 +2,18 @@
 // EpisoDASのDASパタンを入力させてJSON生成
 //
 
+//var name;
+//var seed;
+//var selections;
+var name = localStorage.getItem('name');
+var seed = localStorage.getItem('seed');
+var selections = JSON.parse(localStorage.getItem('selections'));
+
 var width, height;
-
 var qas, answers;
-var name;
-var seed;
-
 var mousediv = null;
 var mousedown = false;
 
-var selections;
 var selected = [];
 
 var finished = false;
@@ -137,11 +139,10 @@ async function init(){
     // JSON読み出し
     await $.ajax({
 	url: `/${name}/__read`,
-	// dataType: 'json',
-	async: true,
+	dataType: 'json',
 	success: function(json) {
-	    data = JSON.parse(json);
-	    // data = json;
+	    // data = JSON.parse(json);
+	    data = json;
 	}
     });
 
