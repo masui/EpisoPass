@@ -25,7 +25,10 @@ get '/episodasmaker' do
   scheme = request.scheme
   host = request.host
   port = request.port
-  scheme = 'https' if scheme == 'http' && host =~ /^episopass\.com$/i
+  if scheme == 'http' && host =~ /^episopass\.com$/i
+    scheme = 'https'
+    port = 443
+  end
   redirect "#{scheme}://#{host}:#{port}/episodasmaker.html"
 end
 
