@@ -5,6 +5,7 @@
 //
 // DASボタンを押したときこれらの値がセーブされる
 //
+var exports = {};
 var name = localStorage.getItem('name');
 var seed = localStorage.getItem('seed');
 var selections = JSON.parse(localStorage.getItem('selections'));
