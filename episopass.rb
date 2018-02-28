@@ -21,6 +21,14 @@ configure do
   set :public_folder, settings.root + '/public'
 end
 
+get '/episodasmaker' do
+  scheme = request.scheme
+  host = request.host
+  port = request.port
+  scheme = 'https' if scheme == 'http' && host =~ /^episopass\.com$/i
+  redirect "#{scheme}://#{host}:#{port}/episodasmaker.html"
+end
+
 get '/:name.json' do |name|
   getdata(name).to_json
 end
