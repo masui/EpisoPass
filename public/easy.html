@@ -9,14 +9,14 @@
     <script src="javascripts/easy.js"></script>
   </head>
   <body>
-   <h1><a href="/">EpisoPass</a> らくらく問題作成</h1>
+   <h1><a href="index.html">EpisoPass</a> らくらく問題作成</h1>
 
-   <b>昔の知人の記憶を使って簡単に<a href="/">EpisoPass</a>問題を作ることができます。</b>
+   <b>人名や地名をリストして簡単に<a href="/">EpisoPass</a>問題を作ることができます。</b>
 
    <h2>1. 名前リストを作成</h2>
 
     <ul>
-     <li>古い友人や知人の名前を30行ぐらい並べて下さい。</li>
+     <li>人名や地名を30行ぐらい並べて下さい。</li>
      <li>適当な名前を混ぜてもかまいません。</li>
     </ul>
 
@@ -27,13 +27,13 @@
 田中"
 		></textarea>
       <br clear='all' />
-     <input type="button" id="addnames" value="サンプル人名リストを生成" style="font-size:1.5em;"/>
+     <!-- <input type="button" id="addnames" value="サンプル人名リストを生成" style="font-size:1.5em;"/> -->
     </blockquote>
     
    <h2>2. 質問リストを作成</h2>
 
     <ul>
-      <li>上の人物のうち10人程度に関する古い記憶を並べて下さい。</li>
+      <li>上のリストのうち10個程度に関する記憶を順不同で並べて下さい。</li>
       <li>他人が知らない秘密の<b>事実</b>で、将来忘れないようなエピソードを書いて下さい。</li>
     </ul>
 
@@ -44,13 +44,15 @@
 スケート場は?"
 		></textarea>
       <br clear='all' />
-     <input type="button" id="addquestions" value="サンプル質問リストを生成" style="font-size:1.5em;"/>
+     <!-- <input type="button" id="addquestions" value="サンプル質問リストを生成" style="font-size:1.5em;"/> -->
     </blockquote>
     
    <h2>3. EpisoPass登録</h2>
 
     <ul>
-      <li><i>ID</i> と <i>シード文字列</i> を指定して <span class="button">登録</span> ボタンを押すとEpisoPassページができます。</li>
+      <li><i>ID</i> と <i>シード文字列</i> を指定して <span class="button">登録</span> ボタンを押すと
+	<a href="https://scrapbox.io/EpisoPass/EpisoPass%E7%B7%A8%E9%9B%86%E3%83%9A%E3%83%BC%E3%82%B8">EpisoPass編集ページ</a>
+	ができます。</li>
       <blockquote>
 	<i>ID</i> : <input class="textinput" type="textarea" id="id" value="Masui_Twitter"/> &nbsp;
 	<i>シード文字列</i> : <input class="textinput" type="textarea" id="seed" value="Twitter123456"/> &nbsp;
@@ -67,7 +69,9 @@
       <li>EpisoPassページで正答を選択してから 右上の「DAS」ボタンを押すとDASパタンを登録できます。</li>
       <li>DASパタンを登録すると
 	<a href="https://episopass.com/Masui_Twitter.html">https://EpisoPass.com/Masui_Twitter.html</a>
-	のようなURLでDASを利用できるようになります。</li>
+	のような
+	<a href="https://scrapbox.io/EpisoPass/EpisoPass%E5%88%A9%E7%94%A8%E3%83%9A%E3%83%BC%E3%82%B8">EpisoPass利用ページ</a>
+	でDASを利用できるようになります。</li>
     </ul>
 
   </body>

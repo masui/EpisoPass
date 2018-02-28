@@ -1,23 +1,23 @@
 h1 {
     /* color: #364e96; 文字色*/
     color: #000;
-    border: solid 7px #364e96; /*線色*/
+    border: solid 10px #ddd; /* #364e96; 線色*/
     padding: 0.5em; /*文字周りの余白*/
     border-radius: 0.3em; /*角丸*/
-    background-color: #8ff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.23);
+    background-color: #fff; /* #8ff; */
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.23); */
 }
 h2 {
     color: #000; /*文字色*/
     border: solid 1px #001122; /*線色*/
     padding: 0.2em; /*文字周りの余白*/
     border-radius: 0.3em; /*角丸*/
-    background-color: #ffe;
+    background-color: #fff; /* #ffe; */
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.23);
 }
 body {
-    padding: 10pt;
-    background-color: #ddd;
+    /* padding: 10pt; */
+    background-color: #eee;
 }
 a {
   text-decoration: none;
