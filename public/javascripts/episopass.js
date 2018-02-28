@@ -220,7 +220,7 @@ $(function() {
     localStorage.setItem('name', name);
     localStorage.setItem('seed', $('#seed').val());
     localStorage.setItem('selections', JSON.stringify(answer));
-    return location.href = '/episodasmaker';
+    return location.href = '/episodasmaker.html';
   });
   $("#apk").click(function() {
     save();
