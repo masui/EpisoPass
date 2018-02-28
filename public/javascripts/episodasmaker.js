@@ -9,6 +9,7 @@ var exports = {};
 var name = localStorage.getItem('name');
 var seed = localStorage.getItem('seed');
 var selections = JSON.parse(localStorage.getItem('selections'));
+localStorage.setItem('selections',''); // 一応消しておく
 
 var width, height;
 var qas, answers;
