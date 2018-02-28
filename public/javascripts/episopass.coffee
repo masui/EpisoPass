@@ -194,8 +194,8 @@ $ ->
     localStorage.setItem 'name', name
     localStorage.setItem 'seed', $('#seed').val()
     localStorage.setItem 'selections', JSON.stringify(answer)
-    # location.href = '/episodasmaker.html'
-    location.href = '/episodasmaker'
+    location.href = '/episodasmaker.html'
+    # location.href = '/episodasmaker'
     
   $("#apk").click ->
     save()
