@@ -16,6 +16,18 @@ $(function() {
     //			 "絵が上手いのは?\n" +
     //			 "足が遅いのは?\n" +
     //			 "スケート場は?\n");
+    $('#answers').on('click',() => {
+        $('#answers').css('height','400px');
+    });
+    $('#answers').on('mouseleave',() => {
+        $('#answers').css('height','100px');
+    });
+    $('#questions').on('click',() => {
+        $('#questions').css('height','300px');
+    });
+    $('#questions').on('mouseleave',() => {
+        $('#questions').css('height','100px');
+    });
     $('#addnames').click(function(){
         shuffle(names,30);
         $('#answers').val(names.slice(0,30).join("\n"));
