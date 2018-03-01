@@ -20,13 +20,13 @@ $(function() {
         $('#answers').css('height','400px');
     });
     $('#answers').on('mouseleave',() => {
-        $('#answers').css('height','100px');
+        $('#answers').css('height','80px');
     });
     $('#questions').on('click',() => {
         $('#questions').css('height','300px');
     });
     $('#questions').on('mouseleave',() => {
-        $('#questions').css('height','100px');
+        $('#questions').css('height','80px');
     });
     $('#addnames').click(function(){
         shuffle(names,30);
