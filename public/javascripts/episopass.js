@@ -216,11 +216,15 @@ $(function() {
     return save();
   });
   $("#das").click(function() {
-    save();
-    localStorage.setItem('name', name);
-    localStorage.setItem('seed', $('#seed').val());
-    localStorage.setItem('selections', JSON.stringify(answer));
-    return location.href = '/episodasmaker.html';
+    var msg;
+    msg = "Draw-a-Secret(DAS)パタンを登録すると高速に答を選択できるようになります。 \nDASパタンを登録しますか?";
+    if (window.confirm(msg)) {
+      save();
+      localStorage.setItem('name', name);
+      localStorage.setItem('seed', $('#seed').val());
+      localStorage.setItem('selections', JSON.stringify(answer));
+      return location.href = '/episodasmaker.html';
+    }
   });
   $("#apk").click(function() {
     save();

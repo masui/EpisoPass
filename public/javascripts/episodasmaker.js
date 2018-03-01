@@ -151,6 +151,8 @@ async function init(){
     if(!seed) data['seed'] = seed;
     qas = data['qas'];
     page = 0;
+
+    window.confirm(`登録したいパタンで${qas.length}個のボタンを押すかなぞって下さい。`);
     
     mousediv = null;
     mousedown = false;
