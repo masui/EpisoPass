@@ -44,7 +44,7 @@
     </div>
     <p></p>
     <div style="font-size:18;">
-       Seed: <input type="text" id="seed" value="<%= @data['seed'] %>" width=100 style="height:20pt;font-size:12pt;">
+       Seed: <input type="text" id="seed" value='<%= CGI.escape(@data['seed']) %>' width=100 style="height:20pt;font-size:12pt;">
        ⇔
        Password: <input type="text" id="pass" width=100 style="height:20pt;font-size:12pt;">
        <!-- <input type="button" value="問題と選択枝をセーブ" id="save" style="height:26pt;font-size:14pt;"> -->
@@ -55,7 +55,7 @@
     </div>
 
     <script language="JavaScript">
-      var json = '<%= @data.to_json %>';
+      var json = decodeURIComponent('<%= CGI.escape(@data.to_json) %>');
     </script>
 
     <script language="JavaScript">
