@@ -44,12 +44,12 @@ get '/:name.html' do |name| # DAS
   erb :episodas
 end
   
-get '/:name.scb' do |name| # Jump to Scrapbox page
+get '/:name.box' do |name| # Jump to Scrapbox page
   @data = getdata(name)
   @data['name'] = name
   @data['seed'] = params[:seed] if params[:seed]
 
-  erb :episojmp
+  erb :episobox
 end
   
 get '/:name/:seed.html' do |name,seed|
