@@ -36,6 +36,14 @@ get '/:name.json' do |name|
   getdata(name).to_json
 end
   
+get '/:name.box.html' do |name| # Jump to Scrapbox page
+  @data = getdata(name)
+  @data['name'] = name
+  @data['seed'] = params[:seed] if params[:seed]
+
+  erb :episobox
+end
+  
 get '/:name.html' do |name| # DAS
   @data = getdata(name)
   @data['name'] = name
@@ -51,14 +59,6 @@ end
 #
 #  erb :episobox
 #end
-  
-get '/:name.box.html' do |name| # Jump to Scrapbox page
-  @data = getdata(name)
-  @data['name'] = name
-  @data['seed'] = params[:seed] if params[:seed]
-
-  erb :episobox
-end
   
 get '/:name/:seed.html' do |name,seed|
   redirect "/#{name}.html?seed=#{seed}"
