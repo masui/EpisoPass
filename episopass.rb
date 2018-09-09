@@ -52,6 +52,14 @@ get '/:name.box' do |name| # Jump to Scrapbox page
   erb :episobox
 end
   
+get '/:name.box.html' do |name| # Jump to Scrapbox page
+  @data = getdata(name)
+  @data['name'] = name
+  @data['seed'] = params[:seed] if params[:seed]
+
+  erb :episobox
+end
+  
 get '/:name/:seed.html' do |name,seed|
   redirect "/#{name}.html?seed=#{seed}"
 end
