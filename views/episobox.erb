@@ -10,7 +10,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <link rel="icon" type="image/png" href="data:image/png;base64,<%= Base64.encode64(get_file('images/favicon.png')).gsub("\n",'') %>">
-    <title><%= @data['name'] %></title>
+    <title><%= @data['name'] + '.box' %></title>
     <style type="text/css">
     body {
         background-image: url("data:image/gif;base64,<%= Base64.encode64(get_file('images/exclusive_paper.gif')).gsub("\n",'') %>");
