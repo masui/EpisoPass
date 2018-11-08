@@ -16,17 +16,22 @@ $(function() {
     //			 "絵が上手いのは?\n" +
     //			 "足が遅いのは?\n" +
     //			 "スケート場は?\n");
-    $('#answers').on('click',() => {
-        $('#answers').css('height','400px');
-    });
-    $('#answers').on('mouseleave',() => {
+    $('body').on('click',() => {
         $('#answers').css('height','80px');
+        $('#questions').css('height','80px');
+    });
+    $('#answers').on('click',() => {
+        $('#answers').css('height','300px');
+        $('#questions').css('height','80px');
+	return false;
     });
     $('#questions').on('click',() => {
         $('#questions').css('height','300px');
     });
-    $('#questions').on('mouseleave',() => {
-        $('#questions').css('height','80px');
+    $('#questions').on('click',() => {
+        $('#questions').css('height','300px');
+        $('#answers').css('height','80px');
+	return false;
     });
     $('#addnames').click(function(){
         shuffle(names,30);
