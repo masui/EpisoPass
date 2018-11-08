@@ -87,7 +87,7 @@ $(function() {
     for(var i=0; pair[i]; i++){
 	var kv = pair[i].split('=');
 	if(kv[0] == 'questions'){
-            $('#questions').val(kv[1].split(/;/).join("\n"));
+            $('#questions').val(decodeURIComponent(kv[1].split(/;/).join("\n")));
 	}
 	if(kv[0] == 'answers'){
             $('#answers').val(kv[1].split(/;/).join("\n"));
