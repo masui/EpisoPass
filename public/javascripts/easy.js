@@ -90,7 +90,7 @@ $(function() {
             $('#questions').val(decodeURIComponent(kv[1].split(/;/).join("\n")));
 	}
 	if(kv[0] == 'answers'){
-            $('#answers').val(kv[1].split(/;/).join("\n"));
+            $('#answers').val(decodeURIComponent(kv[1].split(/;/).join("\n")));
 	}
     }
 
