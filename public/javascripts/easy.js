@@ -97,6 +97,28 @@ $(function() {
 	if(kv[0] == 'answers'){
             $('#answers').val(decodeURIComponent(kv[1].split(/;/).join("\n")));
 	}
+	//if(kv[0] == 'qadata'){
+	//    url = kv[1];
+	//    url = 'http://example.com';
+	//    alert(url);
+	//    $.ajax({
+        //      type: "GET",
+        //      //url: kv[1],
+        //      //dataType: "json",
+        //      url: url,
+        //      async: false,
+        //      success: (data) => {
+        //          questions = data.questions;
+        //          n = questions.length;
+        //          alert(n);
+        //          while (n) {
+        //              const i = Math.floor(Math.random() * n--);
+        //              [questions[i], questions[n]] = [questions[n], questions[i]];
+        //          }
+        //          $('#answers').val(data.answers.join("\n"));
+        //          $('#questions').val(data.questions.join("\n"));
+        //      }
+        //  });
+	//}
     }
-
 });
