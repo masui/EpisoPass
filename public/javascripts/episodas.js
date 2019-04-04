@@ -50,6 +50,8 @@ function finish(){
     passspan.css('border-radius',width*0.015);
     passspan.css('margin',width*0.01);
     passspan.css('padding',width*0.02);
+    //passspan.attr('display','none');
+    //passspan.hide();
     center.append(passspan);
     
     center.append($('<p>'));
@@ -68,6 +70,7 @@ function finish(){
 
     passspan.select();
     document.execCommand("copy");
+    passspan.hide();
 }
 
 secretstr = function() {
