@@ -39,9 +39,17 @@ function finish(){
     var newpass = exports.crypt(data.seed,secretstr());
     var center = $('<center>');
     $('body').append(center);
-    var passspan = $('<span>');
-    passspan.text(newpass);
-    passspan.css('font-size',width * 0.08);
+    //var passspan = $('<span>');
+    //passspan.text(newpass);
+
+    // これはできないのか
+    var passspan = $('<input>');
+    passspan.val(newpass);
+    passspan.attr('type','text');
+    passspan.css('font-size',width*0.06);
+    passspan.css('border-radius',width*0.015);
+    passspan.css('margin',width*0.01);
+    passspan.css('padding',width*0.02);
     center.append(passspan);
     
     center.append($('<p>'));
@@ -57,6 +65,19 @@ function finish(){
         init();
     });
     center.append(input);
+
+    var copy = $('<input>');
+    copy.attr('type','button');
+    copy.attr('value','Copy');
+    copy.css('font-size',width*0.05);
+    copy.css('border-radius',width*0.015);
+    copy.css('margin',width*0.01);
+    copy.css('padding',width*0.02);
+    copy.click(function(event){
+        passspan.select();
+        document.execCommand("copy");
+    });
+    center.append(copy);
 }
 
 secretstr = function() {
