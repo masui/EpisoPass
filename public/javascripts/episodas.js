@@ -66,18 +66,8 @@ function finish(){
     });
     center.append(input);
 
-    var copy = $('<input>');
-    copy.attr('type','button');
-    copy.attr('value','Copy');
-    copy.css('font-size',width*0.05);
-    copy.css('border-radius',width*0.015);
-    copy.css('margin',width*0.01);
-    copy.css('padding',width*0.02);
-    copy.click(function(event){
-        passspan.select();
-        document.execCommand("copy");
-    });
-    center.append(copy);
+    passspan.select();
+    document.execCommand("copy");
 }
 
 secretstr = function() {
