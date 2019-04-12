@@ -56,6 +56,18 @@ function finish(){
     
     center.append($('<p>'));
 
+    var show = $('<input>');
+    show.attr('type','button');
+    show.attr('value','Show');
+    show.css('font-size',width*0.05);
+    show.css('border-radius',width*0.015);
+    show.css('margin',width*0.01);
+    show.css('padding',width*0.02);
+    show.click(function(event){
+	passspan.show();
+    });
+    center.append(show);
+
     var input = $('<input>');
     input.attr('type','button');
     input.attr('value','Again');
