@@ -21,6 +21,13 @@ configure do
   set :public_folder, settings.root + '/public'
 end
 
+#before do
+#  content_type :json
+#  headers 'Access-Control-Allow-Origin' => '*',
+#          'Access-Control-Allow-Methods' => ['OPTIONS', 'GET', 'POST']
+#end
+
+
 #get '/episodasmaker' do
 #  scheme = request.scheme
 #  host = request.host
@@ -32,7 +39,14 @@ end
 #  redirect "#{scheme}://#{host}:#{port}/episodasmaker.html"
 #end
 
+#
+# CORS対策実験
+#
 get '/:name.json' do |name|
+  content_type :json
+  headers 'Access-Control-Allow-Origin' => '*',
+          'Access-Control-Allow-Methods' => ['OPTIONS', 'GET', 'POST'],
+          'Access-Control-Allow-Credentials' => true 
   getdata(name).to_json
 end
   

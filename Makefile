@@ -4,8 +4,9 @@
 #
 # Chromebookで動くように3000番を使う
 #
+RUBY=/home/tmasui/.rbenv/shims/ruby
 local:
-	MONGODB_URI=`heroku config -a episopass | grep MONGODB_URI | ruby -n -e 'puts $$_.split[1]'` ruby episopass.rb -p 3000
+	MONGODB_URI=`heroku config -a episopass | grep MONGODB_URI | $(RUBY) -n -e 'puts $$_.split[1]'` ruby episopass.rb -p 3000
 
 clean:
 	/bin/rm -f *~ */*~
