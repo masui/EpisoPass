@@ -80,9 +80,7 @@ $(function() {
 
 	json = JSON.stringify(data);
 	localStorage.setItem('episodata',json);
-	alert(json);
 	s = localStorage.getItem('episodata');
-	alert(s);
 	
         //
 	/*
