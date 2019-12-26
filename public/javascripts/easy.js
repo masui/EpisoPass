@@ -68,6 +68,7 @@ $(function() {
             alert("質問リストを入力して下さい");
             return;
         }
+	
         qas = [];
         for(var i=0;i<qs.length;i++){
             qa = {};
@@ -76,7 +77,15 @@ $(function() {
             qas.push(qa);
         }
         data['qas'] = qas;
+
+	json = JSON.stringify(data);
+	localStorage.setItem('episodata',json);
+	alert(json);
+	s = localStorage.getItem('episodata');
+	alert(s);
+	
         //
+	/*
         $.ajax({
             type: "POST",
             async: true,
@@ -86,6 +95,7 @@ $(function() {
 		location.href = `http://EpisoPass.com/${id}/${seed}`;
             }
         });
+	 */
     });
 
     var pair = location.search.substring(1).split('&');

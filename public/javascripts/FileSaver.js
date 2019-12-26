@@ -213,4 +213,4 @@ var saveAs = saveAs
 
 	view.addEventListener("unload", process_deletion_queue, false);
 	return saveAs;
-}(self));
+  }(self));
