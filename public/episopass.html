@@ -171,26 +171,35 @@ input.qabutton {
 	<ul>
 	  <li><b>EpisoPass</b>&#8482; は、個人的な記憶から複雑なパスワードを生成するシステムです。</li>
 	  <li>
-	    たとえばこのような<a href="http://pitecan.com/p/Amazon_masui@pitecan.com.html">利用ページ</a>の問題に正しく答えると
+	    たとえばこのような<a href="http://pitecan.com/p/Amazon_masui@pitecan.com.html"><b>利用ページ</b></a>の問題に正しく答えると
 	    Amazonのパスワードが生成されます。
 	  </li>
 	  <li>
-	    利用ページはEpisoPass<b>編集ページ</b>で作成します。
+	    <b>利用ページ</b>のデータはEpisoPass<b>編集ページ</b>で作成します。
 	    上の「問題編集」で編集ページに移動して問題を作成し、
-	    「利用ページ作成」でパタンを指定してから「利用ページダウンロード」をクリックすると、
+	    「利用ページ作成」で<b>DASパタン</b>を指定してから「利用ページダウンロード」をクリックすると、
 	    パスワードを生成するための利用ページのHTMLをダウンロードできます。
+	  </li>
+	  <li>
+	    DASとは「<a href="https://en.wikipedia.org/wiki/Draw_a_Secret">Draw-a-Secret</a>」の略で、ログイン時に描く秘密のパタンのことです。
+	    描きやすいDASパタンを登録すると
+	    利用ページでの回答選択が楽になります。
 	  </li>
 	</ul>
 
+	<h3>ネットの利用</h3>
 	<ul>
+	  <li>
+	    EpisoPass利用時にネット通信は行なわれません。
+	    EpisoPassのデータはどこにも保存されませんし、どこにも送られません。
+	  </li>
 	  <li>
 	    EpisoPassは<a href="episopass.html">episopass.html</a>という単一HTMLファイルで動作するので、
 	    ダウンロードしてローカルマシンのブラウザで動かすことができます。
-	    ネットワークやサーバは必要ありません。
+	    ネットワークやサーバは利用されません。
 	  </li>
-	  <li>編集時のデータはどこにも保存されませんし、どこにも送られません。</li>
 	  <li>
-	    ネットワークに接続されていない状況で利用ページを生成できますし、
+	    ネットワークに接続されていない状況で編集ページを利用して利用ページを生成できますし、
 	    利用ページはどこでも動かすことができます。
 	  </li>
 	</ul>
@@ -215,8 +224,8 @@ input.qabutton {
 	    episoqは <code>npm install -g episoq</code> でインストールできます。
 	  </li>
 	  <li>
-	    episoqを起動するとサンプルデータが読み込まれて編集画面が表示されます。
-	    自分のScrapboxに書いたページを指定することができます。
+	    引数を指定せずにepisoqを起動するとサンプルデータが読み込まれて編集画面が表示されます。
+	    自分のScrapboxに書いたページを引数で指定することができます。
 	    <br>
 	    <code>% episoq プロジェクト名 ページ名</code>
 	  </li>
@@ -540,7 +549,7 @@ eval("/* WEBPACK VAR INJECTION */(function(module) {var __WEBPACK_AMD_DEFINE_ARR
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("//\n// ライブラリのJS\n// lib = require(\"./lib.js\")\n// lib.lib.make_html() が使える\n//\nlib = {\n    make_html: function(data){\n\t// https://qiita.com/daiiz/items/9b9eddb5de9246b017bc daiizOA\n\t// これでダウンロードリンクができる\n\tvar a = $('#htmlbutton');\n\ta.attr('download','episopass.html');\n\t\n\tlines = dastemplate.dastemplate.split(/\\n/);\n\tfor(let i=0;i<lines.length;i++){\n\t    if(lines[i].match(/REPLACE_THIS_LINE$/)){\n\t\tlines[i] = `const data = ${JSON.stringify(data)}`;\n\t    }\n\t}\n\thtml = lines.join(\"\\n\")\n\t\n\tvar blob = new Blob([ html ], { type: \"text/html\" });\n\tvar url = window.webkitURL.createObjectURL(blob);\n\ta.attr('href',url)\n    },\n    \n    show: function(id){\n\t$('#contents').children().css('display','none')\n\t$(id).css('display','block')\n    }\n}\n\nexports.lib = lib\n\n\n//# sourceURL=webpack:///./src/lib.js?");
+eval("//\n// ライブラリのJS\n// lib = require(\"./lib.js\")\n// lib.lib.make_html() が使える\n//\n\nlib = {\n    make_html: function(data){\n\t// https://qiita.com/daiiz/items/9b9eddb5de9246b017bc daiizOA\n\t// これでダウンロードリンクができる\n\tvar a = $('#htmlbutton');\n\ta.attr('download','episopass.html');\n\t\n\tlines = dastemplate.dastemplate.split(/\\n/);\n\tfor(let i=0;i<lines.length;i++){\n\t    if(lines[i].match(/REPLACE_THIS_LINE$/)){\n\t\tlines[i] = `const data = ${JSON.stringify(data)}`;\n\t    }\n\t}\n\thtml = lines.join(\"\\n\")\n\t\n\tvar blob = new Blob([ html ], { type: \"text/html\" });\n\tvar url = window.webkitURL.createObjectURL(blob);\n\ta.attr('href',url)\n    },\n    \n    show: function(id){\n\t$('#contents').children().css('display','none')\n\t$(id).css('display','block')\n    }\n}\n\nexports.lib = lib\n\n\n//# sourceURL=webpack:///./src/lib.js?");
 
 /***/ }),
 
@@ -551,7 +560,7 @@ eval("//\n// ライブラリのJS\n// lib = require(\"./lib.js\")\n// lib.lib.ma
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("//\n// EpisoPassの入口\n//\n\n$ = __webpack_require__(/*! ./jquery.js */ \"./src/jquery.js\")\neditor = __webpack_require__(/*! ./editor.js */ \"./src/editor.js\")\nepisodas = __webpack_require__(/*! ./episodas.js */ \"./src/episodas.js\")\ncrypt = __webpack_require__(/*! ./crypt.js */ \"./src/crypt.js\")\ndasmaker = __webpack_require__(/*! ./dasmaker.js */ \"./src/dasmaker.js\")\ndastemplate = __webpack_require__(/*! ./dastemplate.js */ \"./src/dastemplate.js\")\neasy = __webpack_require__(/*! ./easy.js */ \"./src/easy.js\")\n\ndata = __webpack_require__(/*! ./sampledata.json */ \"./src/sampledata.json\")\n\n// require(\"./episopass.css\")\n\nlib = __webpack_require__(/*! ./lib.js */ \"./src/lib.js\")\n\nif(location.search[0] == '?'){ // 引数解釈\n    let pair = location.search.substring(1).split('&');\n    for(var i=0; pair[i]; i++){\n\tvar kv = pair[i].split('=');\n\tif(kv[0] == 'questions'){\n\t    questions = decodeURIComponent(kv[1]).split(/;/)\n\t}\n\tif(kv[0] == 'answers'){\n\t    answers = decodeURIComponent(kv[1]).split(/;/)\n\t}\n    }\n    let qas = []\n    for(let i=0;i<questions.length;i++){\n\tlet obj = {}\n\tobj['question'] = questions[i]\n\tobj['answers'] = answers\n\tqas.push(obj)\n    }\n    data = {}\n    data['name'] = 'EpisoPass'\n    data['seed'] = 'EpisoPassSeed01234'\n    data['qas'] = qas\n}\n\neditor.editor(data)\n\n\n//# sourceURL=webpack:///./src/main.js?");
+eval("//\n// EpisoPassの入口\n//\n\n$ = __webpack_require__(/*! ./jquery.js */ \"./src/jquery.js\")\neditor = __webpack_require__(/*! ./editor.js */ \"./src/editor.js\")\nepisodas = __webpack_require__(/*! ./episodas.js */ \"./src/episodas.js\")\ncrypt = __webpack_require__(/*! ./crypt.js */ \"./src/crypt.js\")\ndasmaker = __webpack_require__(/*! ./dasmaker.js */ \"./src/dasmaker.js\")\ndastemplate = __webpack_require__(/*! ./dastemplate.js */ \"./src/dastemplate.js\")\neasy = __webpack_require__(/*! ./easy.js */ \"./src/easy.js\")\n\ndata = __webpack_require__(/*! ./sampledata.json */ \"./src/sampledata.json\")\n\n// require(\"./episopass.css\")\n\nlib = __webpack_require__(/*! ./lib.js */ \"./src/lib.js\")\n\nlet curdiv = null\n\nif(location.search[0] == '?'){ // 引数解釈\n    let pair = location.search.substring(1).split('&');\n    for(var i=0; pair[i]; i++){\n\tvar kv = pair[i].split('=');\n\tif(kv[0] == 'questions'){\n\t    questions = decodeURIComponent(kv[1]).split(/;/)\n\t}\n\tif(kv[0] == 'answers'){\n\t    answers = decodeURIComponent(kv[1]).split(/;/)\n\t}\n    }\n    let qas = []\n    for(let i=0;i<questions.length;i++){\n\tlet obj = {}\n\tobj['question'] = questions[i]\n\tobj['answers'] = answers\n\tqas.push(obj)\n    }\n    data = {}\n    data['name'] = 'EpisoPass'\n    data['seed'] = 'EpisoPassSeed01234'\n    data['qas'] = qas\n}\n\n//$(window).on('load',function(){\n//    //alert('onload');\n//    //alert(curdiv)\n//    if(curdiv){\n//\talert('curdiv defined')\n//\tshow(curdiv)\n//    }\n//});\n\neditor.editor(data)\n\n\n//# sourceURL=webpack:///./src/main.js?");
 
 /***/ }),
 
