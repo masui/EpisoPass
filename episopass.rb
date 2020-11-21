@@ -11,7 +11,7 @@ require 'json'
 
 # ローカルライブラリ
 require 'defaultdata'
-require 'db'
+# require 'db' # mongo利用
 require 'file'
 
 enable :cross_origin # Chrome拡張機能から読めるようにするため
