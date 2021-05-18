@@ -7,4 +7,4 @@ gem 'sinatra-cross_origin', '~> 0.4.0'
 
 gem 'mongo', '~> 2.5.1'
 
-gem 'puma', '~> 3.11.2'
+gem 'puma', '~> 4.3.8'
