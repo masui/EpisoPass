@@ -1,4 +1,5 @@
-# [EpisoPass](http://EpisoPass.com) - Generating passwords from unforgettable episodic memories
+<h1><a href="http://EpisoPass.com">EpisoPass</a> -
+    Generating passwords from unforgettable episodic memories</h1>
 
 <img src="https://gyazo.com/e5e677f6c0175d82b11a6718a145ebd2.png">
 
@@ -9,8 +10,8 @@ which he can never forget.
 Then why not generating passwords from such
 personal episodic memories?
 
-[EpisoPass](http://EpisoPass.com) lets you
-generate **very strong** passwords based on your secret
+<a href="http://EpisoPass.com">EpisoPass</a> lets you
+generate <b>very strong</b> passwords based on your secret
 episodic memories. 
 If you do not forget your secret memories,
 you have no chance losing your passwords generated from them!
@@ -34,9 +35,9 @@ for various services.
 
 <h2>Example</h2>
 
-![](https://gyazo.com/eb49539fb30d689f739e5e24204b3bbd.png)
+<img src="https://gyazo.com/eb49539fb30d689f739e5e24204b3bbd.png">
 
-[This](http://EpisoPass.com/Example/Facebook123)
+<a href="http://EpisoPass.com/Example/Facebook123">This</a>
 is an example page of EpisoPass for generating a
 Facebook password.
 A seed string ("Facebook123") and
@@ -59,23 +60,25 @@ there's little chance for attackers to get your password
 even when the seed string and the Q-A pairs are
 open to the public.
 Nevertheless, you can easily calculate it at
-[EpisoPass.com](http://EpisoPass.com/Example/Facebook123)
+<a href="http://EpisoPass.com/Example/Facebook123">EpisoPass.com</a>
 by just selecting correct answers for the questions.
 
 Unlike conventional password management systems,
-**users don't have to remember any secret keyword**
+<b>users don't have to remember any secret keyword</b>
 (e.g. a master keyword)
 for managing their passwords.
 All the passwords are calculated only by the users'
 secret episodic memories, and all the information
 for the calculation can be open to the public.
 
-## Install
+<h2>Install</h2>
 
-- % ```git clone git@github.com:masui/EpisoPass.git```
-- % ```cd EpisoPass```
-- % ```bundle install```
-- % ```ruby episopass.rb```
+<ul>
+    <li><code>% git clone git@github.com:masui/EpisoPass.git</code>
+    <li><code>% EpisoPass</code>
+    <li><code>% bundle install</code>
+    <li><code>% ruby episopass.rb</code>
+</ul>
 
 ## FAQs
 
