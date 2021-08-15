@@ -23,6 +23,7 @@ If secret passwords can be generated from old
 episodic memories, they are (1) hard to crack, and
 (2) easy to be generated from memories.
 
+<p></p>
 Users of EpisoPass should provide question-answer
 pairs based on their secret episodic memories.
 In addition to the correct answer to a question,
