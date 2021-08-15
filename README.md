@@ -1,6 +1,7 @@
 # [EpisoPass](http://EpisoPass.com) - Generating passwords from unforgettable episodic memories
 
-![](https://gyazo.com/e5e677f6c0175d82b11a6718a145ebd2.png)
+<img src="https://gyazo.com/e5e677f6c0175d82b11a6718a145ebd2.png">
+
 
 While nobody can remember long strong passwords,
 everybody has plenty of secret episodic memories
@@ -14,7 +15,7 @@ episodic memories.
 If you do not forget your secret memories,
 you have no chance losing your passwords generated from them!
 
-## Basic idea
+<h2>Basic idea</h2>
 
 Long passwords are hard to remember,
 but old episodic memories are hard to forget.
@@ -30,7 +31,7 @@ Passwords are calculated from the question-answer pairs,
 and passwords generated from correct pairs are used
 for various services.
 
-## Example
+<h2>Example</h2>
 
 ![](https://gyazo.com/eb49539fb30d689f739e5e24204b3bbd.png)
 
