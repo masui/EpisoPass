@@ -79,6 +79,3 @@ for the calculation can be open to the public.
     <li><code>% bundle install</code>
     <li><code>% ruby episopass.rb</code>
 </ul>
-
-## FAQs
-
