@@ -40,12 +40,12 @@ for various services.
 <a href="http://EpisoPass.com/Example/Facebook123">This</a>
 is an example page of EpisoPass for generating a
 Facebook password.
-A seed string ("Facebook123") and
+A seed string (&ldquo;<code>Facebook123</code>&rdquo;) and
 two questions are provided by the user,
 along with many answer candidates.
 A password is generated based on the candidate selections.
-If the correct answers are "Palo Alto" and "Atami"
-and you select them on the page, you get "Oegvcvzt489",
+If the correct answers are &ldquo;Palo Alto&rdquo; and &ldquo;Atami&rdquo;
+and you select them on the page, you get &ldquo;Oegvcvzt489&rdquo;,
 and you can use it as the password for your Facebook account.
 This is a fairly strong cryptic password string,
 and nobody can get this string as long as he does not
