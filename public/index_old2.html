@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <!-- link rel="stylesheet" href="stylesheets/episopass.css" type="text/css" -->
+    <style type="text/css">
+      body {
+        /* background-color: #ae9 */
+        background-color: #eee;
+      }
+    
+      span.title {
+        font-size:30;
+        font-weight:bold;
+      }
+    div.title2 {
+      background-color: #fff;
+      padding: 4pt 4pt 4pt 7pt;
+      margin: 5pt;
+      border-style: solid;
+      border-width: 9pt;
+      border-color: #ddd;
+    }
+    div.title3 {
+      font-size:30;
+      font-weight:bold;
+      vertical-align:middle;
+      float:left;
+    }
+
+    div.menu {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      /* justify-content: space-evenly; */
+      justify-content: center;
+      list-style: none;
+    }
+    div.menuitem {
+      margin: 4px 4px 4px 4px;
+      padding: 10px 15px 10px 15px;
+      border-radius: 4px;
+      line-height: 1;
+      color: #fff;
+      background: #555;
+    }
+    div.menuitem a {
+      display: block;
+      margin:0;
+      padding:0;
+      color: #fff;
+      text-decoration: none;
+    }
+    a {
+      text-decoration: none;
+    }
+    </style>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <title>EpisoPass - 記憶からパスワードを生成</title>
+  </head>
+  <body>
+    <div class="title2">
+      <div style="float:left;">
+	<img src="https://gyazo.com/e5e677f6c0175d82b11a6718a145ebd2.png" height=140 style="vertical-align:middle;">
+      </div>
+      <div style="float:left;">
+	<div style="height:80px;font-size:30px;font-weight:bold;display:table-cell;vertical-align:middle;">EpisoPass - <span id="title">パスワード地獄からの脱出</span></div>
+	<div>-- <span id="subtitle">パスワードは覚えず生成しよう</span> --</div>
+      </div>
+      <br clear="all">
+    </div>
+
+    <div class='menu'>
+      <a href="https://scrapbox.io/EpisoPass/概要"><div class='menuitem'>概要</div></a>
+      <a href="https://scrapbox.io/EpisoPass/使いかた"><div class='menuitem'>使いかた</div></a>
+      <a href="https://scrapbox.io/EpisoPass/メリット"><div class='menuitem'>メリット</div></a>
+      <a href="https://scrapbox.io/EpisoPass/利用例"><div class='menuitem'>利用例</div></a>
+      <a href="https://scrapbox.io/EpisoPass/問題と回答例を簡単に作成"><div class='menuitem'>お手軽問題作成</div></a>
+      <a href="https://scrapbox.io/EpisoPass/FAQ"><div class='menuitem'>FAQ</div></a>
+      <a href="https://scrapbox.io/EpisoPass/資料"><div class='menuitem'>資料</div></a>
+      <a href="https://scrapbox.io/EpisoPass/連絡先"><div class='menuitem'>連絡先</div></a>
+    </div>
+
+    <ul>
+      <li><b>個人的な記憶からパスワードを生成します</b></li>
+      <li><b>パスワードの記憶や保存が不要です</b></li>
+      <li><b>答をなぞって選択した後に表示される文字列をパスワードとして使います</b></li>
+      <li><b><a href="https://EpisoPass.com/episopass.html">EpisoPass.html</a>で試してみましょう!</b></li>
+    </ul>
+
+    <div style="text-align:center;">
+      <div>
+	↓クリックして試せます
+	<br>
+	<a href="http://www.pitecan.com/p/Amazon_masui@pitecan.com.html"><img src="https://gyazo.com/d703a1d7fa33182d850eb8a6ad5bd292.gif" height=400></a>
+      </div>
+    </div>
+
+    <ul>
+      <li><b>正答の並びパタンを覚えていれば簡単にパスワードを生成できます</b></li>
+      <li><b>答を知らない他人はパスワードを生成できません</b></li>
+      <li><b><a href="https://github.com/masui/EpisoPassExtension">拡張機能</a>を利用するとブラウザのログイン画面で使えます</b>
+    </ul>
+    
+    <div style="text-align:center;">
+      <!-- <img src="https://gyazo.com/9d15e1e7bbf95f12804e077cdf4e12b6.gif"> -->
+      <img src="https://gyazo.com/cd06e284941b249a711b7c14de2b923d.gif">
+    </div>
+    
+    <script type="text/javascript">
+      var titles = [
+        'パスワードの苦労が消滅',
+        'パスワード地獄からの脱出',
+        'らくらくパスワード管理'
+      ];
+      setInterval(() => {
+        document.getElementById('title').innerHTML = titles[Math.floor(Math.random() * titles.length)];
+      }, 10000);
+      var subtitles = [
+        'もうパスワードは覚えない',
+        'パスワードは覚えず生成しよう',
+        'パスワードは覚えなくていい!',
+        'パスワードは覚えるな!',
+        'まだパスワードで消耗してるの?'
+      ];
+      setInterval(() => {
+        document.getElementById('subtitle').innerHTML = subtitles[Math.floor(Math.random() * subtitles.length)];
+      }, 13000);
+      
+    </script>
+  </body>
+</html>
+
